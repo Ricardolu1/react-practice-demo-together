@@ -11,6 +11,8 @@ class App extends Component{
       left:0,
       right:0
     }
+    this.startX = 0
+    this.startY = 0
   }
   click(val){
     alert(val)
@@ -25,13 +27,16 @@ class App extends Component{
     // console.log(e.pageX,e.pageY,val)
   }
   touchStart(e){
-    console.log(e.touches[0].pageX,e.touches[0].pageY)
+    // console.log(e.touches[0].pageX,e.touches[0].pageY)
+    this.startX = e.touches[0].pageX-this.state.left
+    this.startY = e.touches[0].pageY-this.state.right
   }
   touchMove(e){
     // console.log(e.touches[0].pageX,e.touches[0].pageY)
+    console.log(e.touches[0].pageX-this.startX,e.touches[0].pageY-this.startY)
     this.setState({
-      left:e.touches[0].pageX-50,
-      right:e.touches[0].pageY-50,
+      left:e.touches[0].pageX-this.startX,
+      right:e.touches[0].pageY-this.startY,
     })
   }
   render(){
