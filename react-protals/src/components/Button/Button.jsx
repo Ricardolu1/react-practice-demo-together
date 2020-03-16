@@ -1,4 +1,4 @@
-import React, { Component ,Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 // import PropTypes from 'prop-types'
 import './style.css'
 export class InputComponent extends Component {
@@ -8,7 +8,11 @@ export class InputComponent extends Component {
   render() {
     return (
       <Fragment>
-        <button className={"my-button active"} type={this.props.type}>{this.props.children}</button>
+        <button className={`my-button ${this.props.className}`} 
+          type={this.props.type}
+        >
+          {this.props.children}
+        </button>
       </Fragment>
     )
   }

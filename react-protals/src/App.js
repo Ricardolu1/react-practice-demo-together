@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import "./assets/css/app.css"
 import Button from './components/Button/Button'
-import './assets/css/app.css'
+import "./assets/css/app.css"
 class App extends Component{
   constructor(){
     super()
@@ -20,7 +19,7 @@ class App extends Component{
             重置
           </Button>
         </form>
-        <Button className="active">删除</Button><br/><br/>
+        <Button className="btn-bg">删除</Button><br/><br/>
         <Button>修改</Button>
       </div>
     )
