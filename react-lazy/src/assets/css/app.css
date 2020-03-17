@@ -1,5 +1,5 @@
 .box{width:100px;height:100px;background: #0000FF;position: absolute;z-index:1;left:0;top:0;}
 .box.active{background-color: red;}
-.btn-bg{background-color: blue;}
+.btn-bg{background-color: blue !important;}
 
 

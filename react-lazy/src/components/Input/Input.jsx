@@ -8,7 +8,7 @@ class InputComponent extends Component{
     return (
       <Fragment>
         <input type="text"
-          onChange={(e)=>this.props.onChange(e)}
+          
         />
       </Fragment>
     )

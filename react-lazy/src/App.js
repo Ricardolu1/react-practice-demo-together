@@ -24,26 +24,29 @@ class App extends Component{
         {
           this.state.isShow && 
           <Suspense fallback={<Fragment>加载中</Fragment>}>  
-            <Input />
+            <Input  />
           </Suspense>
         }
           <Suspense fallback={<Fragment>加载中</Fragment>}>  
             <Button type="submit">
             提交
             </Button>&nbsp;&nbsp;
+            <Button type="reset">
+              重置
+            </Button>
           </Suspense>
-          <Button type="reset">
-            重置
-          </Button>
         </form>
-        <Button className="btn-bg"
-          style={{width:"100px",height:"50px",fontSize:"20px",color:"#f00"}}
-          onClick={()=>this.del()}
-        >
-          删除
-        </Button><br/><br/>
-        <Button>修改</Button>&nbsp;
-        <Button type="Button" onClick={()=>this.showInput()}>显示input组件</Button>
+        <Suspense fallback={<Fragment>加载中</Fragment>}>
+          <Button className="btn-bg"
+            style={{width:"100px",height:"50px",fontSize:"20px",color:"#f00"}}
+            onClick={()=>this.del()}
+          >
+            删除
+          </Button><br/><br/>
+          <Button>修改</Button>&nbsp;
+          <Button type="Button" onClick={()=>this.showInput()}>显示input组件</Button>
+        </Suspense>
+
       </div>
     )
   }
