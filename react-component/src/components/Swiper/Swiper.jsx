@@ -3,30 +3,52 @@ import PropTypes from 'prop-types'
 
 
 import './style.css'
+
 class Swiper extends Component{
   constructor(){
     super()
     this.state = {
+      data:[]
     }
     this.aData = []
+    this.isInit = true
+    this.index = 0
+  }
+  //自动播放
+  componentDidMount(){
+    this.autoPlay()
+  }
+  autoPlay(){
+    this.timer = setInterval(() => {
+      if (this.aData.length>0) {//保证aDate是有值的
+        if (this.index===this.aData.length) {
+          this.index=0
+        }
+        this.changeItem(this.index)
+        ++this.index
+      }
+    }, 1000);
+  }
+  //点击切换图片
+  changeItem(index){
+    this.aData.forEach((item=>{
+      item.active = false
+    }))
+    this.aData[index].active = true
+    this.setState({data:this.aData})
+    this.isInit = false
   }
   render(){
     this.aData = this.props.data
-    if (this.aData.length>0) {
-      for (let i = 0; i < this.aData.length; i++) {
-        if (i===0) {
-          this.aData[i].active=true
-        }else{
-          this.aData[i].active = false
-        }
-      }
+    if (this.aData.length>0&&this.isInit) {
+      this.aData[0].active = true
     }
     return (
       <div className="my-swiper-main">
         {
           this.aData&&this.aData.map((item,index)=>{
             return (
-              <div className={item.actice?"slide show":"slide"} key={index}>
+              <div className={item.active?"slide show":"slide"} key={index}>
                 <a href={item.url} rel="noopener noreferrer" target="_blank">
                   <img src={item.src} alt=""/>
                 </a>
@@ -38,7 +60,9 @@ class Swiper extends Component{
         {
           this.aData.length>0&&this.aData.map((item,index)=>{
             return (
-              <div className={} key={index}></div>
+              <div className={item.active?"dot active":"dot"} key={index}
+                onClick={()=>this.changeItem(index)}
+              ></div>
             )
           })
         }
@@ -47,4 +71,10 @@ class Swiper extends Component{
     )
   }
 }
+
+Swiper.propTypes = {
+  data:PropTypes.array.isRequired,
+}
+
+
 export default Swiper
