@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import Swiper from './components/Swiper/Swiper'
-import "./assets/css/app.css"
+import Toast from './components/Toast/Toast'
 
+
+import "./assets/css/app.css"
 
 class App extends Component{
   constructor(){
     super()
     this.state={
-      images:[]
+      images:[],
+      username:"",
+      password:""
     }
   }
   componentDidMount(){
@@ -18,12 +22,26 @@ class App extends Component{
     ]
     this.setState({images})
   }
+  submitLogin(){
+    if (this.state.username.match(/^\s*$/)) {//空格 空字符串
+      alert("请输入用户名")
+      return
+    }
+  }
   render(){
     return (
       <div className="App">
         <div className="banner">
-          <Swiper data={this.state.images} />
+          {/* <Swiper data={this.state.images} /> */}
         </div>
+        <Toast></Toast>
+        <input type="text" placeholder="用户名" value={this.state.username} 
+          onChange={(e)=>this.setState({username:e.target.value})}
+        />{this.state.username}<br/>
+        <input type="password" placeholder="密码" value={this.state.password} 
+           onChange={(e)=>this.setState({password:e.target.value})}
+        />{this.state.password}<br />
+        <button type="button" onClick={()=>this.submitLogin()}>登录</button>
       </div>
     )
   }

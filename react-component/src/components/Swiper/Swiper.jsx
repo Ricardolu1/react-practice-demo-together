@@ -23,7 +23,7 @@ class Swiper extends Component{
   }
   autoPlay(){
     this.timer = setInterval(() => {
-      if (this.aData.length>0) {//保证aDate是有值的
+      if (this.aData&&this.aData.length>0) {//保证aDate是有值的
         if (this.index===this.aData.length) {
           this.index=0
         }
@@ -47,7 +47,7 @@ class Swiper extends Component{
   }
   render(){
     this.aData = this.props.data
-    if (this.aData.length>0&&this.isInit) {
+    if (this.aData&&this.aData.length>0&&this.isInit) {
       this.aData[0].active = true
     }
     return (
@@ -65,7 +65,7 @@ class Swiper extends Component{
         }
         <div className="pagination">
         {
-          this.aData.length>0&&this.aData.map((item,index)=>{
+          (this.aData&&this.aData.length>0)&&this.aData.map((item,index)=>{
             return (
               <div className={item.active?"dot active":"dot"} key={index}
                 onClick={()=>this.changeItem(index)}
