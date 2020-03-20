@@ -3,10 +3,19 @@ import PropTypes from 'prop-types'
 import './style.css'
 
 class Toast extends Component{
+  constructor(){
+    super()
+    this.state = {
+      text:""
+    }
+  }
+  setOpts(text){
+    this.setState({text})
+  }
   render(){
     return (
       <div className="my-toast">
-        我是toast
+        {this.state.text}
       </div>
     )
   }

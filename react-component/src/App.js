@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Swiper from './components/Swiper/Swiper'
-import Toast from './components/Toast/Toast'
+import Toast from './components/Toast'
 
 
 import "./assets/css/app.css"
@@ -24,7 +24,17 @@ class App extends Component{
   }
   submitLogin(){
     if (this.state.username.match(/^\s*$/)) {//空格 空字符串
-      alert("请输入用户名")
+      Toast({
+        text:"请输入用户名",
+        duration:2000,
+      })
+      return
+    }
+    if (this.state.password.match(/^\s*$/)) {//空格 空字符串
+      Toast({
+        text:"请输入密码",
+        duration:2000,
+      })
       return
     }
   }
@@ -34,7 +44,6 @@ class App extends Component{
         <div className="banner">
           {/* <Swiper data={this.state.images} /> */}
         </div>
-        <Toast></Toast>
         <input type="text" placeholder="用户名" value={this.state.username} 
           onChange={(e)=>this.setState({username:e.target.value})}
         />{this.state.username}<br/>
