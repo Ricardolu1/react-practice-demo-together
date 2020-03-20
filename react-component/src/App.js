@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Swiper from './components/Swiper/Swiper'
 import Toast from './components/Toast'
-
+import Confirm from './components/Confirm'
 
 import "./assets/css/app.css"
 
@@ -11,7 +11,12 @@ class App extends Component{
     this.state={
       images:[],
       username:"",
-      password:""
+      password:"",
+      users:[
+        {name:"张三"},
+        {name:"李四"},
+        {name:"王五"}
+      ]
     }
   }
   componentDidMount(){
@@ -38,6 +43,24 @@ class App extends Component{
       return
     }
   }
+  del(index){
+    Confirm("真的要删除吗",[
+      {
+        text:"cancel",
+        onPress:()=>{
+        }
+      },
+      {
+        text:"sure",
+        onPress:()=>{
+          console.log('点击确认')
+          let tmpUsers = this.state.users
+          tmpUsers.splice(index,1)
+          this.setState({users:tmpUsers})
+        }
+      }
+    ])
+  }
   render(){
     return (
       <div className="App">
@@ -50,7 +73,20 @@ class App extends Component{
         <input type="password" placeholder="密码" value={this.state.password} 
            onChange={(e)=>this.setState({password:e.target.value})}
         />{this.state.password}<br />
-        <button type="button" onClick={()=>this.submitLogin()}>登录</button>
+        <button type="button" onClick={()=>this.submitLogin()}>登录</button><br/>
+        <ul>
+          {
+            this.state.users.map((item,index)=>{
+              return (
+                <li key={index}>
+                  {item.name}
+                  <button type="button" onClick={()=>this.del(index)}>取消</button>
+                </li>
+                
+              ) 
+            })
+          }
+        </ul>
       </div>
     )
   }

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Toast from './Toast'
 
+
 export default function (opts) {
   let div = document.createElement('div')
   document.body.appendChild(div)
