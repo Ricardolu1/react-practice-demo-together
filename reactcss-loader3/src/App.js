@@ -94,46 +94,12 @@ class App extends React.Component {
   render() {
     return (
       <div className={Css['app'] + ' global-size'}>
-        <Header isShow={true}></Header>
         <div class={Css['banner']}>
           <Swiper data={this.state.images}></Swiper>
         </div>
         <div className={Css['banner']}>
           <Swiper data={this.state.images2}></Swiper>
         </div>
-        <input
-          type="text"
-          placeholder="用户名"
-          value={this.state.username}
-          onChange={e => {
-            this.setState({ username: e.target.value })
-          }}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="密码"
-          value={this.state.password}
-          onChange={e => {
-            this.setState({ password: e.target.value })
-          }}
-        />
-        <br />
-        <button type="button" onClick={this.submitLogin.bind(this)}>
-          登录
-        </button>
-        <ul>
-          {this.state.users.map((item, index) => {
-            return (
-              <li key={index}>
-                {item.name}{' '}
-                <button type="button" onClick={this.del.bind(this, index)}>
-                  删除
-                </button>
-              </li>
-            )
-          })}
-        </ul>
       </div>
     )
   }
