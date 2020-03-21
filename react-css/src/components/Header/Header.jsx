@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 //检查数据类型
 import PropTypes from 'prop-types'
 
-
+import  './style.scss'
 
 class HeaderComponent extends Component{
   changeTitle(){
@@ -11,12 +11,12 @@ class HeaderComponent extends Component{
   }
   render(){
     return (
-      <div id="header" style={this.props.isShow?{display:"block"}:
+      <div className='header-comp' style={this.props.isShow?{display:"block"}:
       {display:"none"}}>
         {this.props.title}
         {/* <button type="button" onClick={()=>this.changeTitle()}>点我</button> */}
         <button type="button" 
-          onClick={()=>this.props.sendParent("我是子组件的值")}
+          onClick={this.props.sendParent &&( ()=>this.props.sendParent("我是子组件的值"))}
         >
           给父组件传值
         </button>

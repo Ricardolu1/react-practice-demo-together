@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import './style.css'
+import c from './style.scss'
 
 class Confirm extends Component{
   constructor(){
@@ -27,7 +27,7 @@ class Confirm extends Component{
   }
   render(){
     return (
-      <div className="my-confirm-mask">
+      <div className={c["my-confirm-mask"]}>
         <div className="confirm">
           <div className="message">{this.state.msg}</div>
           <div className="handle">

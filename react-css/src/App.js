@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import Swiper from './components/Swiper/Swiper'
 import Toast from './components/Toast'
 import Confirm from './components/Confirm'
+import  "./assets/css/app.scss"
 
-import "./assets/css/app.css"
+
+import Header from './components/Header/Header'
 
 class App extends Component{
   constructor(){
@@ -63,7 +65,8 @@ class App extends Component{
   }
   render(){
     return (
-      <div className="App">
+      <div className="app">
+        <Header  />
         <div className="banner">
           {/* <Swiper data={this.state.images} /> */}
         </div>
