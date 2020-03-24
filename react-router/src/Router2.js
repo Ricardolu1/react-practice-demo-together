@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, lazy, Suspense } from 'react'
 import  { HashRouter as Router, Route }  from  'react-router-dom';
 /*router.js 页面里的代码
 HashRouter:有#号
@@ -13,13 +13,10 @@ Redirect:路由重定向
 // import NewsPages from './pages/news/news'
 // import NewsDetailPages from './pages/news/details'
 
-import asyncComponent from './components/async/asyncComponent'
 import "./assets/css/app.css"
-
-const IndexPages = asyncComponent(()=>import("./pages/index/index"))
-const NewsPages = asyncComponent(()=>import('./pages/news/news'))
-const NewsDetailPages = asyncComponent(()=>import( './pages/news/details'))
-
+const IndexPages = lazy(()=>import("./pages/index/index"))
+const NewsPages = lazy(()=>import('./pages/news/news'))
+const NewsDetailPages = lazy(()=>import('./pages/news/details'))
 
 
 class RouterComponent extends Component{
@@ -31,10 +28,12 @@ class RouterComponent extends Component{
       <Fragment>
         <Router>
           <Fragment>
-            <Route path="/" exact component={IndexPages}  />
-            <Route path="/news" exact component={NewsPages}  />
-            {/* <Route path="/news/details/:id/:title" component={NewsDetailPages}  /> */}
-            <Route path="/news/details" component={NewsDetailPages}  />
+            <Suspense fallback={<Fragment />}> 
+              <Route path="/" exact component={IndexPages}  />
+              <Route path="/news" exact component={NewsPages}  />
+              {/* <Route path="/news/details/:id/:title" component={NewsDetailPages}  /> */}
+              <Route path="/news/details" component={NewsDetailPages}  />
+            </Suspense>
           </Fragment>
         </Router>
       </Fragment>

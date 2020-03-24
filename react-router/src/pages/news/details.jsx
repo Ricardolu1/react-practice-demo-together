@@ -11,6 +11,9 @@ class NewsDetails extends Component{
   render(){
     return (
       <div>
+        <button type="button"
+          onClick={()=>this.props.history.go(-1)}
+        >返回</button>
         id:{localParam(this.props.location.search).search.id} <br/>
         title:{decodeURIComponent(localParam(this.props.location.search).search.title)}
       </div>

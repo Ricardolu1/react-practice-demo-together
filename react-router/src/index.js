@@ -1,7 +1,7 @@
 import React, { Fragment }from 'react';
 import ReactDOM from 'react-dom';
 import './assets/css/common/public.css';
-import RouterCompnent from './Router';
+import RouterCompnent from './Router2';
 
 function App() {
   return (

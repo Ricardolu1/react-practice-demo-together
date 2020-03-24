@@ -22,6 +22,11 @@ class News extends Component{
               })
             }}
           >新闻详情2</li>
+          <li
+            onClick = {()=>{
+              this.props.history.push('/news/details?id=1&title=新闻详情3')
+            }}
+          >新闻详情3</li>
         </ul>
       </div>
     )
