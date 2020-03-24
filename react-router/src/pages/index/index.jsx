@@ -6,7 +6,6 @@ class Index extends Component{
     
   }
   componentDidMount(){
-    console.log(this.props)
   }
   render(){
     return (

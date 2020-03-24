@@ -24,7 +24,8 @@ class RouterComponent extends Component{
           <Fragment>
             <Route path="/" exact component={IndexPages}  />
             <Route path="/news" exact component={NewsPages}  />
-            <Route path="/news/details/:id/:title" component={NewsDetailPages}  />
+            {/* <Route path="/news/details/:id/:title" component={NewsDetailPages}  /> */}
+            <Route path="/news/details" component={NewsDetailPages}  />
           </Fragment>
         </Router>
       </Fragment>
