@@ -14,12 +14,13 @@ Redirect:路由重定向
 // import NewsDetailPages from './pages/news/details'
 
 import "./assets/css/app.css"
+import {AuthRoute} from './routes/private';
 const IndexPages = lazy(()=>import("./pages/index/index"))
 const NewsPages = lazy(()=>import('./pages/news/news'))
 const NewsDetailPages = lazy(()=>import('./pages/news/details'))
 const GoodsPages = lazy(()=>import('./pages/goods/goods'))
-
-
+const LoginPage=lazy(()=>import("./pages/login"));
+const UserPage=lazy(()=>import("./pages/user"));
 class RouterComponent extends Component{
   constructor(){
     super()
@@ -36,6 +37,8 @@ class RouterComponent extends Component{
                 {/* <Route path="/news/details/:id/:title" component={NewsDetailPages}  /> */}
                 <Route path="/news/details" component={NewsDetailPages}  />
                 <Route path="/goods" component={GoodsPages}  />
+                <Route path="/login" component={LoginPage}></Route>
+                <AuthRoute path="/user" component={UserPage}></AuthRoute>
               </Suspense>
             </Switch>
           </Fragment>

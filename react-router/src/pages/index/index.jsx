@@ -14,6 +14,9 @@ class Index extends Component{
           <li>
             <Link to="/news">新闻页面</Link>
           </li>
+          <li>
+            <Link to="/goods">商品页面</Link>
+          </li>
         </ul>
       </div>
     )

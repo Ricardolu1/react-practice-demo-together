@@ -1,0 +1,12 @@
+.my-button{
+  min-width: 80px;
+  height:25px;
+  background-color:#ff0000;
+  font-size: 14px;
+  color:#fff;
+  border:0 none;
+  outline: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+}

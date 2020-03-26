@@ -1,0 +1,6 @@
+.box{width:100px;height:100px;background: #0000FF;position: absolute;z-index:1;left:0;top:0;}
+.box.active{background-color: red;}
+.btn-bg{background-color: blue !important;}
+.banner{width: 800px;height: 350px;}
+/* button{margin: 0;padding: 0;border: 0 none;outline: none; } */
+
